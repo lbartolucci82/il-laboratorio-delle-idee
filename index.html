@@ -53,7 +53,21 @@
       </div>
       <p id="copyStatus" class="note" aria-live="polite"></p>
     </div>
-    <p class="note">Non inserire nome completo, indirizzo, scuola, password, foto personali o altri dati privati. Questa pagina non salva le domande.</p>
+    <div class="field" style="margin-top:18px">
+      <label for="answerFromChatGPT">Risposta ricevuta da ChatGPT (facoltativo)</label>
+      <textarea id="answerFromChatGPT" rows="7" maxlength="12000" placeholder="Dopo che l'adulto ha letto la risposta in ChatGPT, può copiarla qui per mostrarla più comodamente e preparare una domanda successiva."></textarea>
+    </div>
+    <div class="row">
+      <button class="soft" id="showAnswer">Mostra risposta qui</button>
+      <button class="soft" id="makeFollowup">Prepara una domanda successiva</button>
+    </div>
+    <div id="answerDisplay" class="panel hidden" style="margin-top:12px;white-space:pre-wrap;overflow-wrap:anywhere"></div>
+    <div class="field hidden" id="followupField">
+      <label for="followupQuestion">Che cosa vuoi approfondire?</label>
+      <textarea id="followupQuestion" rows="3" maxlength="1500" placeholder="Es. Puoi spiegarmi meglio il passaggio 2?"></textarea>
+      <button class="primary" id="prepareFollowup">Prepara il seguito</button>
+    </div>
+    <p class="note">Non inserire nome completo, indirizzo, scuola, password, foto personali o altri dati privati. Le domande e le risposte qui non vengono salvate dalla pagina. Un adulto deve condurre l'interazione con ChatGPT.</p>
   </section>
 
   <section class="panel">
@@ -112,13 +126,28 @@ document.querySelectorAll("[data-area]").forEach(btn=>btn.addEventListener("clic
 }));
 $("#backHome").onclick=()=>show("#home");
 $("#adultHelp").onclick=()=>$("#adultMessage").classList.toggle("hidden");
+const baseInstructions="Sei Il Laboratorio delle Idee, un assistente educativo in italiano per un bambino di 9 anni. L'interazione effettiva con ChatGPT è condotta da un adulto presente, che legge e valuta la risposta insieme al bambino. Rispondi in modo rispettoso e intelligente, senza essere condiscendente. Dai istruzioni chiare e numerate, un passaggio alla volta; spiega le parole difficili e fai domande che stimolino il ragionamento. Per Minecraft su PlayStation 5, chiarisci se serve sapere la versione o se una meccanica varia tra versioni. Per i compiti, guida con indizi e spiegazioni invece di limitarti a dare la soluzione. Per progetti 3D, considera robustezza, misure e verifica da parte di un adulto. Per esperimenti, proponi soltanto attività a basso rischio: niente fiamme, sostanze pericolose, miscele di prodotti, rete elettrica o attività senza supervisione. Non chiedere dati personali e ricorda di non condividere nome completo, indirizzo, scuola, password o contatti. Se la richiesta riguarda pericoli, autolesionismo, violenza o una situazione che fa paura, non fornire istruzioni dannose: invita a parlarne subito con l'adulto presente. Se non sei sicuro di un fatto, dichiaralo e non inventare. Inizia con una breve risposta utile, poi procedi per passi.";
+function setPreparedPrompt(text,status){$("#preparedPrompt").value=text;$("#promptResult").classList.remove("hidden");$("#copyStatus").textContent=status||"Copia il testo, apri ChatGPT e incollalo. L'adulto conduce la conversazione e legge la risposta insieme al bambino."}
 function preparePrompt(){
  const q=$("#question").value.trim();if(!q){$("#question").focus();return}
- const instructions="Sei Il Laboratorio delle Idee, un assistente educativo in italiano per un bambino di 9 anni. Un adulto è presente e supervisiona la conversazione. Rispondi in modo rispettoso e intelligente, senza essere condiscendente. Dai istruzioni chiare e numerate, un passaggio alla volta; spiega le parole difficili e fai domande che stimolino il ragionamento. Per Minecraft su PlayStation 5, chiarisci se serve sapere la versione o se una meccanica varia tra versioni. Per i compiti, guida con indizi e spiegazioni invece di limitarti a dare la soluzione. Per progetti 3D, considera robustezza, misure e verifica da parte di un adulto. Per esperimenti, proponi soltanto attività a basso rischio: niente fiamme, sostanze pericolose, miscele di prodotti, rete elettrica o attività senza supervisione. Non chiedere dati personali e ricorda di non condividere nome completo, indirizzo, scuola, password o contatti. Se la richiesta riguarda pericoli, autolesionismo, violenza o una situazione che fa paura, non fornire istruzioni dannose: invita a parlarne subito con l'adulto presente. Se non sei sicuro di un fatto, dichiaralo e non inventare. Inizia con una breve risposta utile, poi procedi per passi.\n\nDOMANDA:\n"+q;
- $("#preparedPrompt").value=instructions;$("#promptResult").classList.remove("hidden");$("#copyStatus").textContent="Premi “Copia testo”, poi apri ChatGPT e incolla la domanda nella conversazione. L'adulto gestisce l'account e legge la risposta insieme al bambino.";
+ setPreparedPrompt(baseInstructions+"\n\nDOMANDA:\n"+q);
 }
 $("#preparePrompt").addEventListener("click",preparePrompt);
-$("#clearQuestion").addEventListener("click",()=>{$("#question").value="";$("#preparedPrompt").value="";$("#promptResult").classList.add("hidden");$("#copyStatus").textContent="";$("#question").focus()});
+$("#showAnswer").addEventListener("click",()=>{
+ const answer=$("#answerFromChatGPT").value.trim();if(!answer){$("#answerFromChatGPT").focus();return}
+ $("#answerDisplay").textContent=answer;$("#answerDisplay").classList.remove("hidden");
+});
+$("#makeFollowup").addEventListener("click",()=>{
+ if(!$("#answerFromChatGPT").value.trim()){ $("#answerFromChatGPT").focus(); $("#copyStatus").textContent="Prima incolla la risposta ricevuta da ChatGPT."; return; }
+ $("#followupField").classList.remove("hidden");$("#followupQuestion").focus();
+});
+$("#prepareFollowup").addEventListener("click",()=>{
+ const original=$("#question").value.trim(), answer=$("#answerFromChatGPT").value.trim(), next=$("#followupQuestion").value.trim();
+ if(!answer||!next){$("#followupQuestion").focus();return}
+ const context=(original?"DOMANDA INIZIALE:\n"+original+"\n\n":"")+"RISPOSTA PRECEDENTE DI CHATGPT:\n"+answer+"\n\nDOMANDA DI APPROFONDIMENTO:\n"+next;
+ setPreparedPrompt(baseInstructions+"\n\nContinua la conversazione usando il contesto seguente. Non ripetere tutto da capo; chiarisci il punto richiesto e proponi un solo passo successivo alla volta.\n\n"+context,"Approfondimento pronto. Copia il testo e invialo in ChatGPT tramite l'adulto.");
+});
+$("#clearQuestion").addEventListener("click",()=>{$("#question").value="";$("#preparedPrompt").value="";$("#promptResult").classList.add("hidden");$("#copyStatus").textContent="";$("#answerFromChatGPT").value="";$("#answerDisplay").textContent="";$("#answerDisplay").classList.add("hidden");$("#followupQuestion").value="";$("#followupField").classList.add("hidden");$("#question").focus()});
 $("#copyPrompt").addEventListener("click",async()=>{
  const t=$("#preparedPrompt").value;
  try{await navigator.clipboard.writeText(t);$("#copyStatus").textContent="Testo copiato. Ora premi “Apri ChatGPT” e incollalo nella conversazione."}
