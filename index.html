@@ -4,17 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f7ff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Laboratorio Idee">
+<link rel="manifest" href="manifest.json">
 <title>Il Laboratorio delle Idee</title>
 <style>
 :root{--ink:#1d2842;--muted:#65708a;--line:#e4e8f2;--paper:#fff;--bg:#f5f7ff;--blue:#3158b8;--blue2:#e8efff;--green:#e7f7ef;--yellow:#fff4d8;--pink:#fbe8f2;--purple:#f0eaff;--shadow:0 10px 28px rgba(38,53,94,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.45}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;border-radius:16px;padding:12px 16px;font-weight:750;color:var(--ink);background:#edf0f8}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #7194ff;outline-offset:2px}.app{max-width:980px;margin:auto;padding:16px 16px calc(28px + env(safe-area-inset-bottom))}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0 18px}.brand{display:flex;align-items:center;gap:12px}.logo{width:52px;height:52px;border-radius:18px;background:#e1ebff;display:grid;place-items:center;font-size:28px}.brand h1{font-size:clamp(20px,4vw,28px);line-height:1.1;margin:0}.brand p{margin:4px 0 0;color:var(--muted);font-size:13px}.parent-btn{background:white;border:1px solid var(--line);padding:10px 12px;white-space:nowrap}.hero{background:linear-gradient(125deg,#e8efff,#fff 60%,#e8f8ef);border:1px solid #e1e7f6;border-radius:26px;padding:22px;margin-bottom:18px;box-shadow:var(--shadow)}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--blue);font-weight:850}.hero h2{font-size:clamp(24px,5vw,38px);line-height:1.08;margin:8px 0}.hero p{color:#4c5874;margin:0;max-width:600px}.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.pill{border-radius:99px;padding:7px 10px;background:#ffffffc9;border:1px solid #dfe6f7;font-size:12px;font-weight:700}.section-title{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:22px 2px 12px}.section-title h2{font-size:20px;margin:0}.section-title p{font-size:13px;color:var(--muted);margin:0}.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tile{border-radius:22px;text-align:left;padding:16px;min-height:158px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;box-shadow:var(--shadow);border:1px solid #ffffff}.tile .emoji{font-size:30px}.tile strong{font-size:17px}.tile small{font-size:13px;color:#515e78;line-height:1.35}.tile.blue{background:var(--blue2)}.tile.green{background:var(--green)}.tile.yellow{background:var(--yellow)}.tile.pink{background:var(--pink)}.tile.purple{background:var(--purple)}.panel{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:18px;margin-top:16px;box-shadow:var(--shadow)}.panel h2{margin:0 0 6px;font-size:21px}.muted{color:var(--muted);font-size:13px}.activity-list{display:grid;gap:10px;margin-top:14px}.activity{border:1px solid var(--line);border-radius:16px;padding:13px;text-align:left;background:#fff;width:100%}.activity strong{display:block;margin-bottom:3px}.activity span{font-size:13px;color:var(--muted)}.chatlog{display:grid;gap:10px;margin:14px 0}.bubble{border-radius:17px;padding:13px 15px;max-width:95%;white-space:pre-wrap}.bubble.bot{background:#edf2ff;justify-self:start}.bubble.child{background:#e7f7ef;justify-self:end}.chatform{display:flex;gap:8px;align-items:stretch}.chatform textarea{resize:vertical;min-height:52px;max-height:140px;flex:1;border:1px solid #d9dfec;border-radius:15px;padding:13px;background:#fff;color:var(--ink)}.primary{background:var(--blue);color:white}.soft{background:#edf2ff;color:#294da2}.warning{background:#fff5dc;border:1px solid #f1dfa7;border-radius:16px;padding:12px;font-size:13px;color:#6d5314}.safe{background:#eaf8ef;border:1px solid #cfe9d8;border-radius:16px;padding:12px;font-size:13px;color:#245b3c}.hidden{display:none!important}.back{background:transparent;color:var(--blue);padding:4px 0;margin-bottom:8px}.steps{padding-left:22px}.steps li{margin:9px 0}.footer{font-size:12px;color:var(--muted);text-align:center;margin:24px 6px 0}.field{display:grid;gap:6px;margin:12px 0}.field label{font-weight:750;font-size:14px}.field input,.field select{padding:12px;border:1px solid var(--line);border-radius:13px;background:white}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.stat{background:#f5f7fc;border:1px solid var(--line);border-radius:15px;padding:12px}.stat strong{display:block;font-size:22px}.stat span{font-size:11px;color:var(--muted)}.event{padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.event:last-child{border-bottom:0}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row button{flex:1}.note{font-size:12px;color:var(--muted)}@media(min-width:680px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.tile{min-height:175px}.hero{padding:30px}.app{padding:24px}}@media(max-width:390px){.top{align-items:flex-start}.parent-btn{font-size:12px;padding:9px}.brand p{font-size:12px}.chatform{flex-direction:column}.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:span 2}}
 </style>
+<link rel="apple-touch-icon" href="icon.svg">
 </head>
 <body>
 <div class="app">
 <header class="top">
   <div class="brand"><div class="logo" aria-hidden="true">💡</div><div><h1>Il Laboratorio delle Idee</h1><p>Impara · Inventa · Costruisci</p></div></div>
-  <button class="parent-btn" id="openParent">🔒 Genitore</button>
 </header>
 
 <main id="home">
@@ -32,13 +36,26 @@
     <button class="tile pink" data-area="science"><span class="emoji">🔬</span><strong>Esperimenti scientifici</strong><small>Osserva, fai ipotesi e scopri come funziona.</small></button>
     <button class="tile purple" data-area="art"><span class="emoji">🎨</span><strong>Disegni, storie e video</strong><small>Inventa personaggi, racconti e storyboard.</small></button>
   </section>
-  <section class="panel">
+  <section class="panel" id="askPanel">
     <h2>💬 Chiedi al Laboratorio</h2>
-    <p class="muted">Questa versione gratuita usa risposte guidate e regole semplici: non è un'intelligenza artificiale completa e non può capire ogni richiesta.</p>
-    <div class="chatlog" id="chatlog"><div class="bubble bot">Ciao inventore! Posso aiutarti con idee per Minecraft, compiti, costruzioni, scienza e storie. Che cosa vuoi provare?</div></div>
-    <form id="chatform" class="chatform"><textarea id="question" maxlength="500" placeholder="Scrivi la tua idea (senza dati personali)..." aria-label="Scrivi la tua idea"></textarea><button class="primary" type="submit">Invia</button></form>
-    <p class="note">Non scrivere nome completo, indirizzo, scuola, password o informazioni private.</p>
+    <p class="muted">Scrivi la tua domanda. Il Laboratorio prepara le istruzioni da usare in ChatGPT, con un adulto presente. Non serve una seconda API né un altro abbonamento.</p>
+    <div class="field"><label for="question">La tua domanda</label><textarea id="question" maxlength="2500" placeholder="Es. Voglio costruire un bunker segreto in Minecraft su PS5. Spiegami i passaggi..."></textarea></div>
+    <div class="row">
+      <button class="primary" id="preparePrompt">Prepara la domanda</button>
+      <button class="soft" id="clearQuestion">Cancella</button>
+    </div>
+    <div id="promptResult" class="hidden" style="margin-top:14px">
+      <div class="safe">Testo pronto. Un adulto deve copiarlo e inviarlo a ChatGPT, quindi leggere insieme la risposta.</div>
+      <div class="field"><label for="preparedPrompt">Istruzioni personalizzate</label><textarea id="preparedPrompt" rows="9" readonly></textarea></div>
+      <div class="row">
+        <button class="primary" id="copyPrompt">Copia testo</button>
+        <button class="soft" id="openChatGPT">Apri ChatGPT</button>
+      </div>
+      <p id="copyStatus" class="note" aria-live="polite"></p>
+    </div>
+    <p class="note">Non inserire nome completo, indirizzo, scuola, password, foto personali o altri dati privati. Questa pagina non salva le domande.</p>
   </section>
+
   <section class="panel">
     <h2>🆘 Chiedi aiuto a un adulto</h2>
     <p>Se qualcosa ti mette a disagio, ti spaventa o qualcuno ti chiede di mantenere un segreto che ti fa stare male, parlane con un genitore o con un adulto di cui ti fidi.</p>
@@ -54,77 +71,61 @@
   <div id="activityDetail" class="hidden panel" style="margin-top:14px;background:#f9faff"></div>
 </section>
 
-<section id="parentLogin" class="panel hidden">
-  <button class="back" id="cancelParent">← Torna alla Home</button>
-  <h2>Area genitore</h2>
-  <p class="muted">Accesso dimostrativo. Il PIN protegge solo la schermata nell'interfaccia: non è una protezione tecnica robusta e non deve essere usato per custodire dati sensibili.</p>
-  <div class="field"><label for="pin">PIN genitore (demo: 2468)</label><input id="pin" type="password" inputmode="numeric" maxlength="8" placeholder="Inserisci il PIN"></div>
-  <button class="primary" id="loginParent">Apri riepilogo</button><p id="pinError" class="muted hidden">PIN non corretto.</p>
-</section>
 
-<section id="parentDash" class="panel hidden">
-  <button class="back" id="closeDash">← Torna alla Home</button>
-  <h2>🔒 Riepilogo genitore</h2>
-  <div class="warning"><strong>Limite importante:</strong> questa demo non invia email o notifiche push, non legge altre app e non è un sistema di sorveglianza. Il rilevamento per parole chiave può sbagliare o non riconoscere un rischio.</div>
-  <div class="stats"><div class="stat"><strong id="countNormal">0</strong><span>Interazioni normali</span></div><div class="stat"><strong id="countReview">0</strong><span>Da verificare</span></div><div class="stat"><strong id="countRisk">0</strong><span>Possibili rischi</span></div></div>
-  <h3>Eventi recenti</h3><div id="eventsList" class="muted">Non ci sono eventi registrati.</div>
-  <div class="field"><label for="digest">Preferenza promemoria riepilogo</label><select id="digest"><option value="off">Disattivato</option><option value="daily">Ogni giorno (solo preferenza locale)</option><option value="weekly">Ogni settimana (solo preferenza locale)</option></select></div>
-  <p class="note">La preferenza non crea un promemoria reale: serve solo a mostrare come potrebbe funzionare la futura versione.</p>
-  <div class="row"><button id="exportReport">Esporta riepilogo</button><button id="clearData" style="background:#fff0f0;color:#8a2828">Cancella dati locali</button></div>
-  <p class="note" style="margin-top:12px">Per privacy, questa demo non salva i testi digitati: conserva soltanto data, ora e categoria generica degli eventi, nel browser di questo dispositivo.</p>
-</section>
-<footer class="footer">Prototipo gratuito · Usare con un adulto · Le rilevazioni possono sbagliare · Nessuna notifica reale è inviata.</footer>
 </div>
 <script>
 const $=s=>document.querySelector(s);
 const areas={
  minecraft:{title:"Minecraft e videogiochi",intro:"Progetta, costruisci e risolvi problemi senza fretta.",items:[
- ["Una base segreta","Disegna una base con ingresso, stanza delle scorte e via di fuga. Scegli prima i materiali e poi costruiscila nel tuo mondo.",["Dove sarà nascosta?","Quali 3 materiali ti servono?","Come la renderai luminosa e facile da ritrovare?"]],
- ["Un villaggio sostenibile","Crea un villaggio con case, orto, sentieri e illuminazione. Prova a usare materiali diversi per ogni edificio.",["Quante case vuoi costruire?","Dove metterai l'orto e l'acqua?","Come proteggerai gli abitanti dai mostri nel gioco?"]],
- ["Una sfida di redstone","Inizia con un circuito semplice, come una porta che si apre con una leva. Cambia una cosa per volta e osserva cosa succede.",["Che cosa deve attivare la leva?","Disegna il circuito prima di costruirlo.","Se non funziona, controlla un blocco alla volta."]]
+ ["Una base segreta","Progetta una base nascosta con ingresso, stanza delle scorte e passaggio segreto. Scegli i materiali e costruiscila nel tuo mondo.",["Dove sarà nascosta?","Quali 3 materiali ti servono?","Come la renderai luminosa e facile da ritrovare?"]],
+ ["Un villaggio sostenibile","Crea un villaggio con case, orto, sentieri e illuminazione.",["Quante case vuoi costruire?","Dove metterai l'orto e l'acqua?","Come proteggerai gli abitanti nel gioco?"]],
+ ["Una sfida di redstone","Inizia con un circuito semplice, come una porta che si apre con una leva.",["Che cosa deve attivare la leva?","Disegna il circuito prima di costruirlo.","Se non funziona, controlla un blocco alla volta."]]
  ]},
- "3d":{title:"Costruzioni e stampa 3D",intro:"Pensa a un oggetto piccolo e utile. Per stampante, utensili e parti calde chiedi sempre a un adulto.",items:[
- ["Un fungo decorativo","Progetta cappello e gambo come due parti semplici. Pensa a come incollarlo su un cartoncino.",["Quanto sarà alto?","La base deve essere piatta?","Chiedi a un adulto di controllare il file prima della stampa."]],
- ["Un portamatite","Disegna un contenitore con base piatta e pareti spesse. Parti da una forma cilindrica o quadrata.",["Quante matite deve contenere?","La base è abbastanza larga?","Evita spigoli sottili e controlla le misure con un adulto."]],
- ["Un portachiavi con iniziale","Crea una forma semplice con una lettera grande e un foro robusto, senza bordi troppo sottili.",["Quale forma scegli?","La lettera si legge bene?","Fai verificare dimensioni e foro prima di stampare."]]
+ "3d":{title:"Costruzioni e stampa 3D",intro:"Progetta un oggetto piccolo e utile. Per stampante, utensili e parti calde chiedi sempre a un adulto.",items:[
+ ["Un fungo decorativo","Progetta cappello e gambo come due parti semplici.",["Quanto sarà alto?","La base deve essere piatta?","Fai controllare il file a un adulto prima di stampare."]],
+ ["Un portamatite","Disegna un contenitore con base piatta e pareti robuste.",["Quante matite deve contenere?","La base è abbastanza larga?","Controlla le misure con un adulto."]],
+ ["Un portachiavi con iniziale","Crea una forma semplice con una lettera grande e un foro robusto.",["Quale forma scegli?","La lettera si legge bene?","Fai verificare le dimensioni prima di stampare."]]
  ]},
- school:{title:"Compiti e apprendimento",intro:"L'obiettivo è capire. Ti darò indizi prima della soluzione completa.",items:[
- ["Matematica: risolvi a tappe","Leggi il problema, cerchia i dati importanti e scegli l'operazione. Poi controlla se il risultato ha senso.",["Quali numeri conosci?","Che cosa devi trovare?","È un problema di somma, differenza, moltiplicazione o divisione?"]],
+ school:{title:"Compiti e apprendimento",intro:"L'obiettivo è capire. Chiedi indizi, esempi e piccoli quiz.",items:[
+ ["Matematica: risolvi a tappe","Leggi il problema, cerchia i dati importanti e scegli l'operazione.",["Quali numeri conosci?","Che cosa devi trovare?","È un problema di somma, differenza, moltiplicazione o divisione?"]],
  ["Italiano: inventa una frase","Scegli un soggetto, un verbo e un dettaglio che faccia immaginare la scena.",["Chi è il protagonista?","Che cosa fa?","Aggiungi dove o quando succede."]],
- ["Studia con un mini-quiz","Leggi un piccolo paragrafo e prova a spiegare l'idea principale con parole tue.",["Qual è la cosa più importante?","Sai fare un esempio?","Formula una domanda che potrebbe esserci in verifica."]]
+ ["Studia con un mini-quiz","Spiega l'idea principale con parole tue.",["Qual è la cosa più importante?","Sai fare un esempio?","Formula una domanda di verifica."]]
  ]},
- science:{title:"Esperimenti scientifici",intro:"Fai esperimenti semplici con un adulto vicino. Non assaggiare i materiali e non mescolare prodotti per la pulizia.",items:[
- ["Quali oggetti galleggiano?","Con un adulto, prepara una ciotola d'acqua e pochi oggetti puliti e sicuri. Prima fai una previsione, poi osserva.",["Quali oggetti pensi galleggino?","Registra le previsioni su carta.","Asciuga il tavolo e rimetti via tutto con l'adulto."]],
- ["Un arcobaleno di colori","Con un adulto, usa matite colorate o pennarelli per rappresentare come la luce si separa in colori. Non guardare mai il Sole direttamente.",["Quali colori metti in ordine?","Disegna un prisma o un arcobaleno.","Quale domanda vuoi approfondire?"]],
- ["Ombre durante il giorno","Con un adulto, osserva l'ombra di un oggetto in momenti diversi senza guardare direttamente il Sole.",["L'ombra è lunga o corta?","La direzione cambia?","Disegna due osservazioni e confrontale."]]
+ science:{title:"Esperimenti scientifici",intro:"Scegli attività semplici con un adulto vicino. Non assaggiare materiali e non mescolare prodotti per la pulizia.",items:[
+ ["Quali oggetti galleggiano?","Con un adulto, prepara una ciotola d'acqua e pochi oggetti puliti e sicuri.",["Quali oggetti pensi galleggino?","Scrivi prima le previsioni.","Asciuga il tavolo e riordina con l'adulto."]],
+ ["Un arcobaleno di colori","Rappresenta i colori dell'arcobaleno con matite o pennarelli. Non guardare mai direttamente il Sole.",["Quali colori metti in ordine?","Disegna un prisma o un arcobaleno.","Quale domanda vuoi approfondire?"]],
+ ["Ombre durante il giorno","Con un adulto, osserva l'ombra di un oggetto in momenti diversi senza guardare il Sole.",["L'ombra è lunga o corta?","La direzione cambia?","Disegna due osservazioni e confrontale."]]
  ]},
  art:{title:"Disegni, storie e video",intro:"Dai forma alla tua idea con uno schizzo, una storia o uno storyboard.",items:[
- ["Inventa un personaggio","Crea un personaggio con un talento, un difetto buffo e un obiettivo da raggiungere.",["Come si chiama il personaggio?","Qual è il suo superpotere o talento?","Quale problema deve risolvere?"]],
- ["Storyboard in 4 scene","Pianifica un video disegnando quattro riquadri: inizio, problema, tentativo e finale.",["Che cosa succede all'inizio?","Quale imprevisto compare?","Come si conclude la storia?"]],
- ["Disegna una macchina impossibile","Unisci tre oggetti comuni in una nuova invenzione. Disegna frecce per spiegare come funziona.",["A che cosa serve?","Quali tre parti ha?","Come la renderesti sicura?"]]
+ ["Inventa un personaggio","Crea un personaggio con un talento, un difetto buffo e un obiettivo.",["Come si chiama?","Qual è il suo talento?","Quale problema deve risolvere?"]],
+ ["Storyboard in 4 scene","Pianifica quattro riquadri: inizio, problema, tentativo e finale.",["Che cosa succede all'inizio?","Quale imprevisto compare?","Come si conclude la storia?"]],
+ ["Disegna una macchina impossibile","Unisci tre oggetti comuni in una nuova invenzione.",["A che cosa serve?","Quali tre parti ha?","Come la renderesti sicura?"]]
  ]}
 };
-const views=["#home","#areaView","#parentLogin","#parentDash"];
+const views=["#home","#areaView"];
 function show(id){views.forEach(v=>$(v).classList.toggle("hidden",v!==id));window.scrollTo({top:0,behavior:"smooth"})}
-function getEvents(){try{return JSON.parse(localStorage.getItem("lab_events")||"[]")}catch{return []}}
-function addEvent(category){const events=getEvents();events.unshift({at:new Date().toISOString(),category});localStorage.setItem("lab_events",JSON.stringify(events.slice(0,100)))}
-document.querySelectorAll("[data-area]").forEach(btn=>btn.addEventListener("click",()=>{const a=areas[btn.dataset.area];$("#areaTitle").textContent=a.title;$("#areaIntro").textContent=a.intro;$("#areaEyebrow").textContent="Scegli un'attività";$("#activityDetail").classList.add("hidden");$("#activityList").innerHTML="";a.items.forEach((it,i)=>{const b=document.createElement("button");b.className="activity";b.innerHTML="<strong>"+it[0]+"</strong><span>"+it[1]+"</span>";b.addEventListener("click",()=>{const d=$("#activityDetail");d.classList.remove("hidden");d.innerHTML="<h3>"+it[0]+"</h3><p>"+it[1]+"</p><ol class='steps'>"+it[2].map(s=>"<li>"+s+"</li>").join("")+"</ol><button class='soft' id='doneActivity'>Ho un piano!</button>";$("#doneActivity").addEventListener("click",()=>{addEvent("normale");d.innerHTML="<div class='safe'>Ottimo! Prova il tuo piano con calma. Se usi strumenti, stampante 3D o materiali che non conosci, chiedi prima a un adulto.</div>";});d.scrollIntoView({behavior:"smooth",block:"nearest"})});$("#activityList").appendChild(b)});show("#areaView")}));
-$("#backHome").onclick=()=>show("#home");$("#openParent").onclick=()=>{show("#parentLogin");$("#pin").value="";$("#pinError").classList.add("hidden")};$("#cancelParent").onclick=()=>show("#home");$("#closeDash").onclick=()=>show("#home");
-$("#loginParent").onclick=()=>{if($("#pin").value==="2468"){renderDash();show("#parentDash")}else $("#pinError").classList.remove("hidden")};
+document.querySelectorAll("[data-area]").forEach(btn=>btn.addEventListener("click",()=>{
+ const a=areas[btn.dataset.area];$("#areaTitle").textContent=a.title;$("#areaIntro").textContent=a.intro;$("#areaEyebrow").textContent="Scegli un'attività";$("#activityDetail").classList.add("hidden");$("#activityList").innerHTML="";
+ a.items.forEach(it=>{const b=document.createElement("button");b.className="activity";const strong=document.createElement("strong");strong.textContent=it[0];const span=document.createElement("span");span.textContent=it[1];b.append(strong,span);b.addEventListener("click",()=>{
+  const d=$("#activityDetail");d.classList.remove("hidden");d.innerHTML="";const h=document.createElement("h3");h.textContent=it[0];const p=document.createElement("p");p.textContent=it[1];const ol=document.createElement("ol");ol.className="steps";it[2].forEach(t=>{const li=document.createElement("li");li.textContent=t;ol.appendChild(li)});const go=document.createElement("button");go.className="primary";go.textContent="Usa questa idea in ChatGPT";go.addEventListener("click",()=>{const q="Aiutami con questa attività: "+it[0]+". "+it[1]+" Guidami con passaggi numerati e domande, adatti a un bambino di 9 anni con un adulto presente.";$("#question").value=q;preparePrompt();$("#askPanel").scrollIntoView({behavior:"smooth",block:"start"});});d.append(h,p,ol,go);d.scrollIntoView({behavior:"smooth",block:"nearest"});
+ });$("#activityList").appendChild(b)});show("#areaView")
+}));
+$("#backHome").onclick=()=>show("#home");
 $("#adultHelp").onclick=()=>$("#adultMessage").classList.toggle("hidden");
-function classify(q){const s=q.toLowerCase();const risk=/uccid|suicid|farmi male|tagliarmi|autoles|bomba|esplosiv|velen|arma|pistola|coltello|come ferire|far male a qualcuno/.test(s);const review=/password|indirizzo|telefono|numero di telefono|nome completo|dove abito|sesso|porno|nudo|segreto|non dirlo ai miei|incontrare uno sconosciuto/.test(s);return risk?"rischio":review?"verifica":"normale"}
-function reply(q){const s=q.toLowerCase();const category=classify(q);if(category==="rischio")return {category,text:"Mi fermo qui perché questa richiesta potrebbe riguardare la sicurezza. Non posso aiutarti con istruzioni pericolose. Parlane subito con un genitore o un adulto fidato; se qualcuno è in pericolo adesso, cerca immediatamente un adulto presente."};if(category==="verifica")return {category,text:"Per proteggerti, non condividere password, indirizzo, telefono o informazioni private e non tenere segreti che ti fanno stare male. Se questa domanda riguarda una situazione reale, parlane con un genitore o un adulto fidato."};
-if(/minecraft|redstone|costru|videogioc|mondo/.test(s))return {category,text:"Idea per il tuo progetto: 1) disegna cosa vuoi costruire; 2) scegli tre materiali; 3) costruisci una piccola parte; 4) prova e migliora. Che cosa vuoi realizzare esattamente? Puoi scegliere il laboratorio Minecraft."};
-if(/stampa 3d|stampante|modello 3d|fungo|portamatite/.test(s))return {category,text:"Per un modello 3D semplice, inizia con forme grandi e una base piatta. Scrivi altezza e larghezza, controlla che le parti siano abbastanza robuste e chiedi a un adulto di verificare il file e usare la stampante."};
-if(/compit|matemat|division|moltiplic|italiano|grammatica|scuola|studiare/.test(s))return {category,text:"Proviamo un passo alla volta: 1) che cosa ti chiede l'esercizio? 2) quali informazioni conosci? 3) quale potrebbe essere il primo passaggio? Scrivimi il testo senza nomi o dati personali e ti darò un indizio, non solo la risposta."};
-if(/esperiment|scienz|acqua|galleg|chimic|elettric|fuoco/.test(s))return {category,text:"Facciamo solo esperimenti semplici e sicuri, con un adulto vicino. Evita fuoco, elettricità, sostanze chimiche e prodotti per la pulizia. Puoi osservare quali oggetti puliti galleggiano in una ciotola d'acqua, facendo prima una previsione."};
-if(/disegn|storia|video|personagg|racconto|fumetto/.test(s))return {category,text:"Proviamo a inventare: scegli un protagonista, un luogo e un problema da risolvere. Poi crea tre scene: inizio, imprevisto e finale. Quale protagonista ti piacerebbe usare?"};
-return {category,text:"Non so rispondere bene a questa domanda in questa versione gratuita: le mie risposte sono guidate e limitate. Scegli uno dei laboratori qui sopra oppure chiedi a un genitore di aiutarti a esplorare l'idea."}}
-$("#chatform").addEventListener("submit",e=>{e.preventDefault();const input=$("#question"),q=input.value.trim();if(!q)return;const result=reply(q);addEvent(result.category);const user=document.createElement("div");user.className="bubble child";user.textContent=q;$("#chatlog").appendChild(user);const bot=document.createElement("div");bot.className="bubble bot";bot.textContent=result.text;$("#chatlog").appendChild(bot);input.value="";$("#chatlog").scrollIntoView({behavior:"smooth",block:"end"});});
-function renderDash(){const e=getEvents();$("#countNormal").textContent=e.filter(x=>x.category==="normale").length;$("#countReview").textContent=e.filter(x=>x.category==="verifica").length;$("#countRisk").textContent=e.filter(x=>x.category==="rischio").length;const list=$("#eventsList");list.innerHTML="";if(!e.length){list.textContent="Non ci sono eventi registrati.";return}e.slice(0,20).forEach(x=>{const d=document.createElement("div");d.className="event";const date=new Date(x.at).toLocaleString("it-IT");const label={normale:"Interazione normale",verifica:"Da verificare",rischio:"Possibile rischio"}[x.category]||"Evento";d.textContent=date+" — "+label;list.appendChild(d)})}
-$("#digest").value=localStorage.getItem("lab_digest")||"off";$("#digest").addEventListener("change",()=>localStorage.setItem("lab_digest",$("#digest").value));
-$("#clearData").onclick=()=>{if(confirm("Vuoi cancellare tutti gli eventi e le preferenze salvati in questo browser?")){localStorage.removeItem("lab_events");localStorage.removeItem("lab_digest");$("#digest").value="off";renderDash();alert("Dati locali cancellati.")}};
-$("#exportReport").onclick=()=>{const e=getEvents();const lines=["Riepilogo demo — Il Laboratorio delle Idee","Attenzione: classificazione automatica imperfetta; nessuna notifica reale.",""];e.forEach(x=>lines.push(new Date(x.at).toLocaleString("it-IT")+" — "+({normale:"Normale",verifica:"Da verificare",rischio:"Possibile rischio"}[x.category]||x.category)));const blob=new Blob([lines.join("\n")],{type:"text/plain;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="riepilogo-laboratorio.txt";a.click();URL.revokeObjectURL(a.href)};
+function preparePrompt(){
+ const q=$("#question").value.trim();if(!q){$("#question").focus();return}
+ const instructions="Sei Il Laboratorio delle Idee, un assistente educativo in italiano per un bambino di 9 anni. Un adulto è presente e supervisiona la conversazione. Rispondi in modo rispettoso e intelligente, senza essere condiscendente. Dai istruzioni chiare e numerate, un passaggio alla volta; spiega le parole difficili e fai domande che stimolino il ragionamento. Per Minecraft su PlayStation 5, chiarisci se serve sapere la versione o se una meccanica varia tra versioni. Per i compiti, guida con indizi e spiegazioni invece di limitarti a dare la soluzione. Per progetti 3D, considera robustezza, misure e verifica da parte di un adulto. Per esperimenti, proponi soltanto attività a basso rischio: niente fiamme, sostanze pericolose, miscele di prodotti, rete elettrica o attività senza supervisione. Non chiedere dati personali e ricorda di non condividere nome completo, indirizzo, scuola, password o contatti. Se la richiesta riguarda pericoli, autolesionismo, violenza o una situazione che fa paura, non fornire istruzioni dannose: invita a parlarne subito con l'adulto presente. Se non sei sicuro di un fatto, dichiaralo e non inventare. Inizia con una breve risposta utile, poi procedi per passi.\n\nDOMANDA:\n"+q;
+ $("#preparedPrompt").value=instructions;$("#promptResult").classList.remove("hidden");$("#copyStatus").textContent="Premi “Copia testo”, poi apri ChatGPT e incolla la domanda nella conversazione. L'adulto gestisce l'account e legge la risposta insieme al bambino.";
+}
+$("#preparePrompt").addEventListener("click",preparePrompt);
+$("#clearQuestion").addEventListener("click",()=>{$("#question").value="";$("#preparedPrompt").value="";$("#promptResult").classList.add("hidden");$("#copyStatus").textContent="";$("#question").focus()});
+$("#copyPrompt").addEventListener("click",async()=>{
+ const t=$("#preparedPrompt").value;
+ try{await navigator.clipboard.writeText(t);$("#copyStatus").textContent="Testo copiato. Ora premi “Apri ChatGPT” e incollalo nella conversazione."}
+ catch{$("#preparedPrompt").focus();$("#preparedPrompt").select();$("#copyStatus").textContent="La copia automatica non è disponibile. Il testo è selezionato: scegli Copia dal menu dell'iPad."}
+});
+$("#openChatGPT").addEventListener("click",()=>{window.open("https://chatgpt.com/","_blank","noopener");$("#copyStatus").textContent="In ChatGPT, incolla il testo copiato. Se non l'hai ancora copiato, torna qui e premi “Copia testo”."});
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
 </script>
 </body>
 </html>
